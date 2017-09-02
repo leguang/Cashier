@@ -27,17 +27,14 @@ public class MainFragment extends BaseFragment {
     public static final String TAG = MainFragment.class.getSimpleName();
     private static final long WAIT_TIME = 2000L;// 再点一次退出程序时间设置
     public static final String PRESS_AGAIN = "再按一次退出";
-
+    private long TOUCH_TIME = 0;
     @BindView(R.id.topbar_main_frament)
-    TextView topbar;
+    View topbar;
     @BindView(R.id.fl_goods_list_main_frament)
     FrameLayout flGoodsList;
     @BindView(R.id.fl_barcode_list_main_frament)
     FrameLayout flBarcodeList;
-
     Unbinder unbinder;
-
-    private long TOUCH_TIME = 0;
 
     public static MainFragment newInstance() {
         return new MainFragment();
@@ -47,8 +44,6 @@ public class MainFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
-
-        ALog.e("too" + view.findViewById(R.id.topbar_main_frament));
         unbinder = ButterKnife.bind(this, view);
         return view;
     }
@@ -64,10 +59,7 @@ public class MainFragment extends BaseFragment {
     }
 
     private void initData() {
-        ALog.e("topbar-->" + topbar);
-        ALog.e("topbar-->" + flGoodsList);
-        ALog.e("topbar-->" + flBarcodeList);
-//        initStateBar(topbar);
+
     }
 
     @Override

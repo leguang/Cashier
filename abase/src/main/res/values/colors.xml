@@ -3,7 +3,7 @@
 
     <!-- 常用颜色值 -->
     <color name="base_color">#E95D5A</color>
-    <color name="default_color">#E95D5A</color>
+    <color name="default_color">#00B7EE</color>
     <color name="base_line">#E7E7E7</color>
     <color name="base_gray">#F3F5F7</color>
     <color name="default_gray">#999</color>

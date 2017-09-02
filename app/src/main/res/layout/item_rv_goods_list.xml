@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_icon_item_rv_goods_list"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/kele" />
+
+        <TextView
+            android:id="@+id/tv_name_item_rv_goods_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:text="可乐"
+            android:textColor="@color/base_black" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="#F0F" />
+
+        <TextView
+            android:id="@+id/tv_amount_item_rv_goods_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="2"
+            android:textColor="@color/base_color" />
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="#F0F" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_price_item_rv_goods_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="￥3.00"
+        android:textColor="@color/default_color" />
+
+    <TextView
+        android:id="@+id/tv_sum_item_rv_goods_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="￥6.00"
+        android:textColor="@color/default_color" />
+
+    <ImageView
+        android:id="@+id/iv_delete_item_rv_goods_list"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:src="@drawable/ic_close_black_18dp" />
+
+</LinearLayout>

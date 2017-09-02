@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv_key"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/shape_stroke_bg_barcode"
+    android:ellipsize="end"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:gravity="center"
+    android:maxLines="1"
+    android:text="1"
+    android:textColor="@color/base_black"
+    android:textSize="19sp" />
+

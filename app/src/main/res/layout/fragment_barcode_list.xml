@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_result_barcode_list_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:descendantFocusability="blocksDescendants"
+        android:layoutAnimation="@anim/layout_dock_left_enter" />
+
+    <TextView
+        android:id="@+id/tv_barcode_barcode_list_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape_stroke_bg_barcode"
+        android:ellipsize="end"
+        android:hint="请输入条形码"
+        android:lines="2"
+        android:maxLines="2"
+        android:padding="5dp"
+        android:textColor="@color/base_black"
+        android:textSize="15sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_keyboard_barcode_list_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:descendantFocusability="blocksDescendants" />
+
+</LinearLayout>
