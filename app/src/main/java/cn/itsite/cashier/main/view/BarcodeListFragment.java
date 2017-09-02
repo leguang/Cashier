@@ -1,5 +1,6 @@
 package cn.itsite.cashier.main.view;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
@@ -106,7 +107,8 @@ public class BarcodeListFragment extends BaseFragment {
             protected void convert(BaseViewHolder helper, String item) {
                 helper.setText(R.id.tv_key, item);
                 if (helper.getLayoutPosition() == 14) {
-                    helper.setBackgroundRes(R.id.tv_key, R.drawable.shape_solid_bg_keyboard);
+                    helper.setBackgroundRes(R.id.tv_key, R.drawable.shape_solid_bg_keyboard)
+                            .setTextColor(R.id.tv_key, Color.WHITE);
                 }
             }
         });
