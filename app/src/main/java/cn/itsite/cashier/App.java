@@ -4,24 +4,41 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 
+import org.litepal.LitePal;
+import org.litepal.crud.DataSupport;
+
+import java.util.ArrayList;
+
 import cn.itsite.abase.BaseApplication;
 import cn.itsite.abase.log.ALog;
+import cn.itsite.cashier.entity.GoodsBean;
 
 /**
- * Author： Administrator on 2017/5/2 0002.
- * Email： liujia95me@126.com
+ * Author：leguang on 2017/9/2 0009 14:23
+ * Email：langmanleguang@qq.com
  */
 public class App extends BaseApplication implements Application.ActivityLifecycleCallbacks {
-    private static final String TAG = App.class.getSimpleName();
+    public static final String TAG = App.class.getSimpleName();
 
     @Override
     public void onCreate() {
         super.onCreate();
+        LitePal.initialize(this);
         initDate();
     }
 
     private void initDate() {
 //        UserHelper.init();
+
+        ArrayList<GoodsBean> listGoods = new ArrayList<>();
+        for (int i = 0; i < 70; i++) {
+
+            ALog.e(i);
+            new GoodsBean("", "第" + i + "商品", i, i, i).save();
+        }
+
+        ALog.e("DataSupport-->" + DataSupport.find(GoodsBean.class, 1));
+
     }
 
     @Override

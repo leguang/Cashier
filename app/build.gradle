@@ -44,4 +44,6 @@ dependencies {
     //暂时使用的更新库
     compile 'com.qianwen:update-app:3.3.1'
     compile 'com.qianwen:okhttp-utils:3.8.0'
+    //ORM库
+    compile 'org.litepal.android:core:1.6.0'
 }

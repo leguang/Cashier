@@ -1,11 +1,14 @@
 package cn.itsite.cashier.entity;
 
+
+import org.litepal.crud.DataSupport;
+
 /**
  * Created by leguang on 2017/9/2 0002.
  * Email：langmanleguang@qq.com
  */
 
-public class GoodsBean {
+public class GoodsBean extends DataSupport {
     public String icon;
     public String name;
     public int amount;
