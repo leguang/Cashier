@@ -5,12 +5,10 @@ import android.app.Application;
 import android.os.Bundle;
 
 import org.litepal.LitePal;
-import org.litepal.crud.DataSupport;
-
-import java.util.ArrayList;
 
 import cn.itsite.abase.BaseApplication;
 import cn.itsite.abase.log.ALog;
+import cn.itsite.cashier.entity.GoodsBarcodeBean;
 import cn.itsite.cashier.entity.GoodsBean;
 
 /**
@@ -30,15 +28,11 @@ public class App extends BaseApplication implements Application.ActivityLifecycl
     private void initDate() {
 //        UserHelper.init();
 
-        ArrayList<GoodsBean> listGoods = new ArrayList<>();
-        for (int i = 0; i < 70; i++) {
-
+        for (int i = 0; i < 10; i++) {
             ALog.e(i);
             new GoodsBean("", "第" + i + "商品", i, i, i).save();
+            new GoodsBarcodeBean("", "第" + i + "商品", i + "", i + "", i + "").save();
         }
-
-        ALog.e("DataSupport-->" + DataSupport.find(GoodsBean.class, 1));
-
     }
 
     @Override

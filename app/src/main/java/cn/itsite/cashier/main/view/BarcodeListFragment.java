@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +15,16 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseViewHolder;
 
+import org.litepal.crud.DataSupport;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import cn.itsite.abase.log.ALog;
 import cn.itsite.abase.mvp.view.base.BaseFragment;
 import cn.itsite.abase.mvp.view.base.BaseRecyclerViewAdapter;
 import cn.itsite.abase.mvp.view.base.Decoration;
@@ -42,7 +49,7 @@ public class BarcodeListFragment extends BaseFragment {
     RecyclerView rvKeyboard;
     Unbinder unbinder;
     private ArrayList<GoodsBarcodeBean> results;
-    private ArrayList<String> keys;
+    private List<String> keys;
     private BaseRecyclerViewAdapter<GoodsBarcodeBean, BaseViewHolder> resultAdapter;
     private BaseRecyclerViewAdapter<String, BaseViewHolder> keyBoardAdapter;
 
@@ -68,25 +75,9 @@ public class BarcodeListFragment extends BaseFragment {
     private void initData() {
         results = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            results.add(new GoodsBarcodeBean("", "第" + i + "商品", i, i, i));
+//            results.add(new GoodsBarcodeBean("", "第" + i + "商品", i, i, i));
         }
-
-        keys = new ArrayList<>();
-        keys.add("7");
-        keys.add("8");
-        keys.add("9");
-        keys.add("4");
-        keys.add("5");
-        keys.add("6");
-        keys.add("1");
-        keys.add("2");
-        keys.add("3");
-        keys.add("0");
-        keys.add("00");
-        keys.add(".");
-        keys.add("删除");
-        keys.add("清空");
-        keys.add("确定");
+        keys = Arrays.asList(getResources().getStringArray(R.array.key));
 
         rvResult.setLayoutManager(new LinearLayoutManager(_mActivity));
         rvResult.addItemDecoration(new Decoration(_mActivity, Decoration.VERTICAL_LIST));
@@ -115,6 +106,30 @@ public class BarcodeListFragment extends BaseFragment {
     }
 
     private void initListener() {
+        tvBarcode.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+                ALog.e(charSequence);
+                ALog.e(start);
+                ALog.e(before);
+                ALog.e(count);
+
+                List<GoodsBarcodeBean> goods = DataSupport.where("amount = ?", charSequence.toString()).find(GoodsBarcodeBean.class);
+                resultAdapter.setNewData(goods);
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
         keyBoardAdapter.setOnItemClickListener((adapter, view, position) -> {
             AudioPlayer.getInstance(_mActivity).play(AudioPlayer.CLICK);
 
